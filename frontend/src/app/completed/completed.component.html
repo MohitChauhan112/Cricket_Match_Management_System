@@ -1,0 +1,12 @@
+<h2>🏁 Completed Matches</h2>
+
+<div *ngIf="matches.length > 0; else noData">
+  <div *ngFor="let match of matches">
+    <app-match-card [match]="match"></app-match-card>
+  </div>
+</div>
+
+<ng-template #noData>
+  <p>❌ No completed matches found</p>
+</ng-template>
+

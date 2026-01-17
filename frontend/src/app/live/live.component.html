@@ -1,0 +1,12 @@
+<h2>🔴 Live Matches</h2>
+
+<div *ngIf="matches.length > 0; else noLive">
+  <div *ngFor="let match of matches">
+    <app-match-card [match]="match"></app-match-card>
+  </div>
+</div>
+
+<ng-template #noLive>
+  <p>⏳ No live matches available</p>
+</ng-template>
+

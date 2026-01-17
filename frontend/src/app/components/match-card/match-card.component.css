@@ -1,0 +1,57 @@
+/* Parent container agar already ho to */
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;          /* Cards next row pe jaye agar space kam ho */
+  gap: 20px;                /* Cards ke beech gap */
+  justify-content: center;  /* Center align */
+}
+
+/* Tumhare existing match-card CSS me flex width add kiya */
+.match-card {
+  background-color: #ffffff; /* Card background */
+  color: #001f3f;            /* Text color */
+  border-radius: 12px;
+  padding: 20px;
+  flex: 1 1 calc(50% - 20px); /* 2 cards per row, gap adjust */
+  max-width: 300px;           /* Max width per card */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  text-align: center;
+  box-sizing: border-box;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.match-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+}
+
+.match-card .heading {
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.match-card .status {
+  font-size: 0.9rem;
+  color: green;
+  margin-bottom: 8px;
+}
+
+.match-card .score {
+  font-size: 0.95rem;
+  white-space: pre-wrap;
+  margin-bottom: 8px;
+}
+
+.match-card .result {
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+/* Optional: Responsive */
+@media (max-width: 650px) {
+  .match-card {
+    flex: 1 1 100%; /* Mobile pe 1 card per row */
+    max-width: 100%;
+  }
+}

@@ -1,0 +1,46 @@
+<div class="home-page">
+
+  <!-- FILTER BUTTONS -->
+  <div class="filter-bar">
+    <button class="filter-btn live"
+            [class.active]="showSection === 'live'"
+            (click)="showSection='live'">🔴 Live</button>
+
+    <button class="filter-btn upcoming"
+            [class.active]="showSection === 'upcoming'"
+            (click)="showSection='upcoming'">🟡 Upcoming</button>
+
+    <button class="filter-btn completed"
+            [class.active]="showSection === 'completed'"
+            (click)="showSection='completed'">✅ Completed</button>
+  </div>
+
+  <!-- LIVE -->
+  <section *ngIf="showSection === 'live'">
+    <h2 class="section-title">🔥 Live Matches</h2>
+    <div class="grid">
+      <app-match-card *ngFor="let match of liveMatches" [match]="match"></app-match-card>
+    </div>
+  </section>
+
+  <!-- UPCOMING -->
+  <section *ngIf="showSection === 'upcoming'">
+    <h2 class="section-title">🟡 Upcoming Matches</h2>
+    <div class="grid">
+      <app-match-card *ngFor="let match of upcomingMatches"
+                      [match]="match"
+                      [showStartButton]="true"
+                      (startMatch)="startUpcomingMatch($event)">
+      </app-match-card>
+    </div>
+  </section>
+
+  <!-- COMPLETED -->
+  <section *ngIf="showSection === 'completed'">
+    <h2 class="section-title">✅ Completed Matches</h2>
+    <div class="grid">
+      <app-match-card *ngFor="let match of completedMatches" [match]="match"></app-match-card>
+    </div>
+  </section>
+
+</div>

@@ -1,0 +1,20 @@
+
+<div class="match-card">
+  <h3 class="heading">
+    {{ match.teamHeading || (match.battingTeam + ' vs ' + match.bowlingTeam) }}
+  </h3>
+
+  <span class="status">{{ match.status }}</span>
+
+  <pre class="score">
+{{ match.scoreSummary }}
+  </pre>
+
+  <p class="result">
+    <b>Result:</b> {{ match.matchResult }}
+  </p>
+
+   <button *ngIf="showStartButton" (click)="onStartMatch()" class="start-btn">
+    ▶️ Start Match
+  </button>
+</div>

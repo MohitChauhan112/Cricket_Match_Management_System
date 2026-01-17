@@ -1,0 +1,11 @@
+<h2>📅 Upcoming Matches</h2>
+
+<div *ngIf="matches.length > 0; else empty">
+  <div *ngFor="let match of matches">
+    <app-match-card [match]="match"></app-match-card>
+  </div>
+</div>
+
+<ng-template #empty>
+  ❌ No upcoming matches found
+</ng-template>
